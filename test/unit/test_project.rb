@@ -1,7 +1,7 @@
 require 'helper'
 
 class TestProject < MiniTest::Unit::TestCase
-  include DDD::Associations
+  include Dilatory
 
   def test_project_without_tasks
     project_title = 'Birthday Cake'

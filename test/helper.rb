@@ -1,2 +1,2 @@
 require 'minitest/autorun'
-require 'ddd-associations'
+require 'domain/dilatory'
