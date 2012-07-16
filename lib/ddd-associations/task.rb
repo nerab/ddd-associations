@@ -24,15 +24,6 @@ module DDD
 
         @project = project
       end
-
-      def hash
-        title.hash + project.hash + tags.hash
-      end
-
-      def ==(other)
-        return false unless other.is_a?(Task)
-        title == other.title && tags == other.tags && project == other.project
-      end
     end
   end
 end

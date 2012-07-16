@@ -11,15 +11,6 @@ module DDD
         @name = name
         @tasks = TagTasks.new(self)
       end
-
-      def hash
-        name.hash + tasks.hash
-      end
-
-      def ==(other)
-        return false unless other.is_a?(Tag)
-        name == other.name && tasks == other.tasks
-      end
     end
   end
 end
