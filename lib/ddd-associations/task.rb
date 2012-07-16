@@ -10,7 +10,7 @@ module DDD
       def initialize(title, project = nil)
         @title = title
         self.project=(project)
-        @tags = TaskTagList.new(self)
+        @tags = TaskTags.new(self)
       end
 
       def project=(project)
@@ -23,6 +23,15 @@ module DDD
         end
 
         @project = project
+      end
+
+      def hash
+        title.hash + project.hash + tags.hash
+      end
+
+      def ==(other)
+        return false unless other.is_a?(Task)
+        title == other.title && tags == other.tags && project == other.project
       end
     end
   end

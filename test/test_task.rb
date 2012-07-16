@@ -18,7 +18,7 @@ class TestTask < MiniTest::Unit::TestCase
 
     assert_equal(cake, buy_milk.project)
     assert_equal(1, buy_milk.project.tasks.size)
-    assert_equal(1, buy_milk.project.tasks.last.project.tasks.first.project.tasks.size)
+    assert_equal(1, buy_milk.project.tasks.first.project.tasks.first.project.tasks.size)
    end
 
    def test_deassign_project

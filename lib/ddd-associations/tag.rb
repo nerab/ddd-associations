@@ -9,7 +9,16 @@ module DDD
 
       def initialize(name)
         @name = name
-        @tasks = TagTaskList.new(self)
+        @tasks = TagTasks.new(self)
+      end
+
+      def hash
+        name.hash + tasks.hash
+      end
+
+      def ==(other)
+        return false unless other.is_a?(Tag)
+        name == other.name && tasks == other.tasks
       end
     end
   end

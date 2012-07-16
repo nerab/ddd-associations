@@ -3,15 +3,15 @@ module DDD
     #
     # Maintains the tags of a task
     #
-    class TaskTagList
+    class TaskTags
       extend Forwardable
-      def_delegators :@tags, :size, :first, :last
+      def_delegators :@tags, :size, :first
 
       #
       # +task+ is the task we are managing tags for
       #
       def initialize(task)
-        @tags = []
+        @tags = Set.new
         @task = task
       end
 
