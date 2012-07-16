@@ -1,7 +1,7 @@
 require 'helper'
 
 class TestTag < MiniTest::Unit::TestCase
-  include DDD::Aggregates
+  include DDD::Associations
 
   def test_tag_without_tasks
     tag_name = 'mall'

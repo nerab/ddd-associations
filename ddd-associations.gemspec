@@ -1,17 +1,17 @@
-require File.expand_path('../lib/ddd-aggregates/version', __FILE__)
+require File.expand_path('../lib/ddd-associations/version', __FILE__)
 
 Gem::Specification.new do |gem|
   gem.authors       = ["Nicholas E. Rabenau"]
   gem.email         = ["nerab@gmx.net"]
-  gem.summary       = %q{DDD Aggregates}
-  gem.description   = %q{Esxample code demonstrating the use of aggregates in DDD}
+  gem.summary       = %q{DDD Associations}
+  gem.description   = %q{Example code demonstrating the use of associations in pure Ruby}
 
   gem.files         = `git ls-files`.split($\)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
-  gem.name          = "ddd-aggregates"
+  gem.name          = "ddd-associations"
   gem.require_paths = ["lib"]
-  gem.version       = DDD::Aggregates::VERSION
+  gem.version       = DDD::Associations::VERSION
 
   gem.add_development_dependency 'guard-minitest', '~> 0.5'
   gem.add_development_dependency 'guard-bundler', '~> 1.0'

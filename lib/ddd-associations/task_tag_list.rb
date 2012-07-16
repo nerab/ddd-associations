@@ -1,5 +1,5 @@
 module DDD
-  module Aggregates
+  module Associations
     class TaskTagList
       extend Forwardable
       def_delegators :@tags, :size, :first, :last, :delete

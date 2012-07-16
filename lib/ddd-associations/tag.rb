@@ -1,5 +1,5 @@
 module DDD
-  module Aggregates
+  module Associations
     #
     # has_and_belongs_to_many :tasks
     #

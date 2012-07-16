@@ -1,7 +1,7 @@
 require 'helper'
 
 class TestTask < MiniTest::Unit::TestCase
-  include DDD::Aggregates
+  include DDD::Associations
 
   def test_task_without_project
     task_title = 'Buy milk'

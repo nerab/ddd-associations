@@ -1,21 +1,21 @@
 module DDD
-  module Aggregates
-    class ProjectTaskList
+  module Associations
+    class TagTaskList
       extend Forwardable
       def_delegators :@tasks, :size, :first, :last, :delete
 
       #
-      # +project+ is the project we are managing tasks for
+      # +tag+ is the tag we are managing tasks for
       #
-      def initialize(project)
+      def initialize(tag)
         @tasks = []
-        @project = project
+        @tag = tag
       end
 
       def <<(task)
         unless @tasks.include?(task)
           @tasks << task
-          task.project = @project
+          task.tags << @tag
         end
       end
     end

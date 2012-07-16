@@ -1,2 +1,2 @@
 require 'minitest/autorun'
-require 'ddd-aggregates'
+require 'ddd-associations'
