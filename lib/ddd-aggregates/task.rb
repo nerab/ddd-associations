@@ -2,13 +2,15 @@ module DDD
   module Aggregates
     #
     # belongs_to :project
+    # has_and_belongs_to_many :tags
     #
     class Task
-      attr_reader :title, :project
+      attr_reader :title, :project, :tags
 
       def initialize(title, project = nil)
         @title = title
         self.project=(project)
+        @tags = TaskTagList.new(self)
       end
 
       def project=(project)
