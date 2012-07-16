@@ -3,8 +3,14 @@ module DDD
     module HasMany
       module ClassMethods
         def has_many(name)
+          @name = name
           self.send('attr_reader', name)
-#          instance_variable_set("@#{name}".to_sym, ProjectTasks.new(self))
+        end
+
+        def new(super_class = Object)
+          super(super_class).tap do |instance|
+            instance.instance_variable_set("@#{@name}", OneToManyCollection.new(instance))
+          end
         end
       end
 

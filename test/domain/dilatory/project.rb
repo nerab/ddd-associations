@@ -7,7 +7,6 @@ module Dilatory
 
     def initialize(title)
       @title = title
-      @tasks = ProjectTasks.new(self)
     end
   end
 end
