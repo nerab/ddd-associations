@@ -2,7 +2,7 @@ module DDD
   module Aggregates
     class TaskList
       extend Forwardable
-      def_delegators :@tasks, :size, :first, :last
+      def_delegators :@tasks, :size, :first, :last, :delete
 
       #
       # +project+ is the project we are managing tasks for
@@ -13,8 +13,10 @@ module DDD
       end
 
       def <<(task)
-        @tasks << task
-        task.project = @project
+        unless @tasks.include?(task)
+          @tasks << task
+          task.project = @project
+        end
       end
     end
   end

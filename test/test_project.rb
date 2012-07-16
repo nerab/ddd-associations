@@ -14,10 +14,12 @@ class TestProject < MiniTest::Unit::TestCase
     project_title = 'Birthday Cake'
     cake = Project.new(project_title)
 
-    # could also be cake.add_task(t)
-    # or cake.tasks returns a TaskList which registers the task with the project when called for <<
+    refute(cake.tasks.first)
+    refute(cake.tasks.last)
+
     cake.tasks << Task.new('Buy milk')
     assert_equal(1, cake.tasks.size)
+
     cake.tasks << Task.new('Buy flower')
     assert_equal(2, cake.tasks.size)
 

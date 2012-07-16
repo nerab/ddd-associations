@@ -12,10 +12,12 @@ module DDD
       end
 
       def project=(project)
+        return if @project == project
+
         if project.nil?
           @project.tasks.delete(self) if @project # de-register self at project it currently belongs to
-#        else
-#          project.tasks << self # register self at the new project
+        else
+          project.tasks << self # register self at the new project
         end
 
         @project = project
