@@ -4,10 +4,12 @@ module DDD
     # has_many :tasks
     #
     class Project
-      attr_accessor :title, :tasks
+      attr_accessor :title
+      attr_reader :tasks
 
-      def initialize(title, tasks = [])
-        @title, @tasks = title, tasks
+      def initialize(title)
+        @title = title
+        @tasks = TaskList.new(self)
       end
     end
   end
