@@ -1,6 +1,6 @@
 module DDD
   module Aggregates
-    class TaskList
+    class ProjectTaskList
       extend Forwardable
       def_delegators :@tasks, :size, :first, :last, :delete
 

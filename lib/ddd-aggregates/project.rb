@@ -9,7 +9,7 @@ module DDD
 
       def initialize(title)
         @title = title
-        @tasks = TaskList.new(self)
+        @tasks = ProjectTaskList.new(self)
       end
     end
   end
