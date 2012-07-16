@@ -26,14 +26,10 @@ module DDD
       # Remove +tag+ from this list of tasks
       #
       def delete(tag)
-        result = nil
-
         if @tags.include?(tag)
-          result = @tags.delete(tag)
+          @tags.delete(tag)
           tag.tasks.delete(@task)
         end
-
-        result
       end
     end
   end

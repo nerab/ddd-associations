@@ -20,14 +20,10 @@ module DDD
       end
 
       def delete(task)
-        result = nil
-
         if @tasks.include?(task)
-          result = @tasks.delete(task)
+          @tasks.delete(task)
           task.project = nil
         end
-
-        return result
       end
     end
   end

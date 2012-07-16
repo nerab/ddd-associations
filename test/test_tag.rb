@@ -31,7 +31,7 @@ class TestTag < MiniTest::Unit::TestCase
     assert_equal(1, mall.tasks.size)
     assert_equal(1, get_cash.tags.size)
 
-    get_cash = mall.tasks.delete(get_cash)
+    mall.tasks.delete(get_cash)
     assert_equal(0, mall.tasks.size)
     assert_equal(0, get_cash.tags.size)
   end

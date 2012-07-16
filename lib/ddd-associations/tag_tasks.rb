@@ -8,6 +8,8 @@ module DDD
       def_delegators :@tasks, :size, :first
 
       #
+      # Creates a new task set of a tag.
+      #
       # +tag+ is the tag we are managing tasks for
       #
       def initialize(tag)
@@ -15,6 +17,9 @@ module DDD
         @tag = tag
       end
 
+      #
+      # Adds +task+ to this set of tasks
+      #
       def <<(task)
         unless @tasks.include?(task)
           @tasks << task
@@ -23,17 +28,13 @@ module DDD
       end
 
       #
-      # Remove +task+ from this list of tags
+      # Remove +task+ from this set of tags
       #
       def delete(task)
-        result = nil
-
         if @tasks.include?(task)
-          result = @tasks.delete(task)
+          @tasks.delete(task)
           task.tags.delete(@tag)
         end
-
-        result
       end
     end
   end
