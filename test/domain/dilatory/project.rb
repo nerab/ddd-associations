@@ -1,6 +1,6 @@
 module Dilatory
   class Project
-    include DDD::Associations::HasMany
+    include DDD::Associations
 
     attr_accessor :title
     has_many :tasks

@@ -1,7 +1,6 @@
 module Dilatory
   class Tag
-    include DDD::Associations::HasMany
-    include DDD::Associations::HasAndBelongsToMany
+    include DDD::Associations
 
     attr_accessor :name
     has_many :tasks
