@@ -4,6 +4,8 @@ A metaprogramming exercise that implements associations in pure Ruby, inspired b
 
 Please see the [examples](/nerab/ddd-associations/tree/master/test/domain) for an example.
 
+[![Build Status](https://secure.travis-ci.org/nerab/ddd-associations.png?branch=master)](http://travis-ci.org/nerab/ddd-associations)
+
 ## Contributing
 
 1. Fork it
