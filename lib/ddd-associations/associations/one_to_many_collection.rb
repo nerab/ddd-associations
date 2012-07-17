@@ -4,14 +4,12 @@ module DDD
       extend Forwardable
       def_delegators :@many, :size, :first
 
-      include Helpers
-
       #
       # +one+ is the one we are managing many for
       #
       def initialize(one)
         @many = Set.new
-        @name = demodulize(one.class.name).downcase
+        @name = one.class.name.demodulize.downcase
         @one = one
       end
 

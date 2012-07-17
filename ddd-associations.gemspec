@@ -13,12 +13,14 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.version       = DDD::Associations::VERSION
 
+  gem.add_dependency 'activesupport', '~> 3.2'
+
   gem.add_development_dependency 'guard-minitest', '~> 0.5'
   gem.add_development_dependency 'guard-bundler', '~> 1.0'
   gem.add_development_dependency 'coolline', '~> 0.3'
+  gem.add_development_dependency 'growl'
 
   gem.add_development_dependency 'minitest'
   gem.add_development_dependency 'rake'
-
   gem.add_development_dependency 'pry'
 end

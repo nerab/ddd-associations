@@ -7,12 +7,14 @@ module DDD
           self.send('define_method', "#{attrib_name}=") do |one|
             return if self.instance_variable_get("@#{attrib_name}") == one
 
+            collection_name = self.class.name.demodulize.downcase.pluralize
+
             if one.nil?
               # de-register self at one it currently belongs to
-              self.instance_variable_get("@#{attrib_name}").tasks.delete(self) if self.instance_variable_get("@#{attrib_name}")
+              self.instance_variable_get("@#{attrib_name}").send(collection_name).delete(self) if self.instance_variable_get("@#{attrib_name}")
             else
               # register self at the one
-              one.tasks << self
+              one.send(collection_name) << self
             end
 
             self.instance_variable_set("@#{attrib_name}", one)
