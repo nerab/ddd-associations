@@ -4,14 +4,15 @@ module Dilatory
   #
   class Task
     include DDD::Associations::BelongsTo
+    include DDD::Associations::HasAndBelongsToMany
 
-    attr_reader :title, :tags
+    attr_reader :title
     belongs_to :project
+    has_and_belongs_to_many :tags
 
     def initialize(title, project = nil)
       @title = title
       self.project = project
-      @tags = TaskTags.new(self)
     end
   end
 end
