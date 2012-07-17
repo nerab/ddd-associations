@@ -25,8 +25,8 @@ class TestTask < MiniTest::Unit::TestCase
     cake = Project.new('Birthday Cake')
     buy_milk = Task.new('Buy milk', cake)
 
-    assert_equal(cake, buy_milk.project)
     refute_nil(buy_milk.project)
+    assert_equal(cake, buy_milk.project)
     assert_equal(1, buy_milk.project.tasks.size)
     assert_equal(1, cake.tasks.size)
 

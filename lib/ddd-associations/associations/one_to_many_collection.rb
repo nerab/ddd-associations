@@ -4,6 +4,8 @@ module DDD
       extend Forwardable
       def_delegators :@many, :size, :first
 
+      include Helpers
+
       #
       # +one+ is the one we are managing many for
       #
@@ -24,19 +26,6 @@ module DDD
         if @many.include?(one)
           @many.delete(one)
           one.send("#{@name}=", nil)
-        end
-      end
-
-      private
-
-      # We don't want to pull in all ActiveSupport just for this ...
-      # http://api.rubyonrails.org/classes/ActiveSupport/Inflector.html#method-i-demodulize
-      def demodulize(path)
-        path = path.to_s
-        if i = path.rindex('::')
-          path[(i+2)..-1]
-        else
-          path
         end
       end
     end

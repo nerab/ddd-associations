@@ -2,14 +2,14 @@ module DDD
   module Associations
     module HasMany
       module ClassMethods
-        def has_many(name)
-          @name = name
-          self.send('attr_reader', name)
+        def has_many(many)
+          @many = many
+          self.send('attr_reader', many)
         end
 
-        def new(super_class = Object)
+        def new(super_class = Object, *args)
           super(super_class).tap do |instance|
-            instance.instance_variable_set("@#{@name}", OneToManyCollection.new(instance))
+            instance.instance_variable_set("@#{@many}", OneToManyCollection.new(instance))
           end
         end
       end
