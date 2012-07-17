@@ -1,14 +1,18 @@
 module DDD
   module Associations
     module ClassMethods
+      #
       # One project has many tasks
+      #
       def has_many(others)
         @others = others
         @collection = OneToManyCollection
         self.send('attr_reader', others)
       end
 
+      #
       # A task belongs to a project
+      #
       def belongs_to(other)
         self.send('attr_reader', other)
         self.send('define_method', "#{other}=") do |one|
@@ -28,15 +32,17 @@ module DDD
         end
       end
 
+      #
       # Many tasks belong to many tags and vice versa
+      #
       def has_and_belongs_to_many(others)
         @others = others
         @collection = ManyToManyCollection
         self.send('attr_reader', others)
       end
 
-      def new(super_class = Object, *args)
-        super(super_class).tap do |instance|
+      def new(*args)
+        super(*args).tap do |instance|
           instance.instance_variable_set("@#{@others}", @collection.new(instance))
         end
       end

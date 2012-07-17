@@ -11,6 +11,13 @@ class TestTask < MiniTest::Unit::TestCase
     assert_nil(buy_milk.project)
   end
 
+  def test_init_with_project
+    cake = Project.new('Birthday Cake')
+    buy_milk = Task.new('Buy milk', cake)
+    refute_nil(buy_milk.project)
+    assert_equal(cake, buy_milk.project)
+  end
+
   def test_assign_project
     buy_milk = Task.new('Buy milk')
     cake = Project.new('Birthday Cake')
