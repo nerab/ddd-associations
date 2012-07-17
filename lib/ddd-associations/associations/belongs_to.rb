@@ -2,22 +2,22 @@ module DDD
   module Associations
     module BelongsTo
       module ClassMethods
-        def belongs_to(attrib_name)
-          self.send('attr_reader', attrib_name)
-          self.send('define_method', "#{attrib_name}=") do |one|
-            return if self.instance_variable_get("@#{attrib_name}") == one
+        def belongs_to(other)
+          self.send('attr_reader', other)
+          self.send('define_method', "#{other}=") do |one|
+            return if self.instance_variable_get("@#{other}") == one
 
             collection_name = self.class.name.demodulize.downcase.pluralize
 
             if one.nil?
               # de-register self at one it currently belongs to
-              self.instance_variable_get("@#{attrib_name}").send(collection_name).delete(self) if self.instance_variable_get("@#{attrib_name}")
+              self.instance_variable_get("@#{other}").send(collection_name).delete(self) if self.instance_variable_get("@#{other}")
             else
               # register self at the one
               one.send(collection_name) << self
             end
 
-            self.instance_variable_set("@#{attrib_name}", one)
+            self.instance_variable_set("@#{other}", one)
           end
         end
       end

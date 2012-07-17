@@ -26,6 +26,16 @@ class TestProject < MiniTest::Unit::TestCase
 
     # let's go over board
     assert_equal(2, cake.tasks.first.project.tasks.first.project.tasks.size)
+
+    # enumerate tasks
+    tasks_visited = 0
+
+    cake.tasks.each do |task|
+      assert_equal(cake, task.project)
+      tasks_visited += 1
+    end
+
+    assert_equal(cake.tasks.size, tasks_visited)
   end
 
   def test_deassign_project
