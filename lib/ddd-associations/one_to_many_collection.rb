@@ -1,8 +1,9 @@
 module DDD
   module Associations
     class OneToManyCollection
+      include Enumerable
       extend Forwardable
-      def_delegators :@many, :size, :first, :each
+      def_delegators :@many, :size, :each
 
       #
       # +one+ is what we are the collection for
