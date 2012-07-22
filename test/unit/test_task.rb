@@ -100,8 +100,4 @@ class TestTask < MiniTest::Unit::TestCase
     assert_equal(4, cake.tasks.size)
     assert_equal(4, cake.tasks.take_while{|t| t.project == cake}.size, "All tasks until one is not part of the 'cake' project")
   end
-
-  def test_set_traits
-    skip 'A list of tasks should have set characteristics'
-  end
 end
