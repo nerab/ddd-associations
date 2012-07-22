@@ -1,31 +1,24 @@
 module DDD
   module Associations
-    class ManyToManyCollection
-      extend Forwardable
-      include Enumerable
-      def_delegators :@many, :size, :each
-
-      #
-      # +one+ is what we are the collection for
-      #
-      def initialize(one)
-        @many = Set.new
-        @name = one.class.name.demodulize.downcase.pluralize
-        @one = one
-      end
-
-      def <<(one)
-        unless @many.include?(one)
-          @many << one
-          one.send("#{@name}") << @one
+    class ManyToManyCollection < ManyCollection
+      def <<(another_one)
+        unless many.include?(another_one)
+          many << another_one
+          another_one.send("#{collection_name}") << one
         end
       end
 
-      def delete(one)
-        if @many.include?(one)
-          @many.delete(one)
-          one.send("#{@name}").delete(@one)
+      def delete(another_one)
+        if many.include?(another_one)
+          many.delete(another_one)
+          another_one.send("#{collection_name}").delete(one)
         end
+      end
+
+      protected
+
+      def collection_name
+        one.class.name.demodulize.downcase.pluralize
       end
     end
   end
