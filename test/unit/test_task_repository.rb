@@ -2,7 +2,7 @@ require 'helper'
 require 'tempfile'
 
 class TestTaskRepository < MiniTest::Unit::TestCase
-  include Dilatory
+  include Undilatory
 
   def setup
     @data_dir = Dir.mktmpdir

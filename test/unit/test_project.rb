@@ -1,7 +1,7 @@
 require 'helper'
 
 class TestProject < MiniTest::Unit::TestCase
-  include Dilatory
+  include Undilatory
 
   def test_project_without_tasks
     project_title = 'Birthday Cake'

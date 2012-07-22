@@ -1,2 +1,2 @@
 require 'minitest/autorun'
-require 'domain/dilatory'
+require 'domain/undilatory'

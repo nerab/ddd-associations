@@ -1,7 +1,7 @@
 require 'helper'
 
 class TestTag < MiniTest::Unit::TestCase
-  include Dilatory
+  include Undilatory
 
   def test_tag_without_tasks
     tag_name = 'mall'

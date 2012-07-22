@@ -1,4 +1,4 @@
-module Dilatory
+module Undilatory
   class Task < Entity
     include DDD::Associations
 

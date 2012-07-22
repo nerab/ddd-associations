@@ -1,4 +1,4 @@
-module Dilatory
+module Undilatory
   class Project < Entity
     include DDD::Associations
 

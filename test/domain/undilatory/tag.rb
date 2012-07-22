@@ -1,4 +1,4 @@
-module Dilatory
+module Undilatory
   class Tag < Entity
     include DDD::Associations
 

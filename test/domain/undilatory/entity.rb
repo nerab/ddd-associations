@@ -1,4 +1,4 @@
-module Dilatory
+module Undilatory
   class Entity
     attr_accessor :uuid
 

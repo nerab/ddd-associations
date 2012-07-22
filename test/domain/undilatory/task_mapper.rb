@@ -1,4 +1,4 @@
-module Dilatory
+module Undilatory
   #
   # Maps tasks from and to JSON streams
   #

@@ -1,4 +1,4 @@
-module Dilatory
+module Undilatory
   class TaskRepository
     include Enumerable
     extend Forwardable
