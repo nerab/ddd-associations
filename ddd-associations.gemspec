@@ -14,6 +14,7 @@ Gem::Specification.new do |gem|
   gem.version       = DDD::Associations::VERSION
 
   gem.add_dependency 'activesupport', '~> 3.2'
+  gem.add_dependency 'multi_json'
 
   gem.add_development_dependency 'guard-minitest', '~> 0.5'
   gem.add_development_dependency 'guard-bundler', '~> 1.0'

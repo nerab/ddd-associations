@@ -6,7 +6,7 @@ class TestTaskRepository < MiniTest::Unit::TestCase
 
   def setup
     @data_dir = Dir.mktmpdir
-    @repo = TaskRepository.new(@data_dir)
+    @repo = TaskRepository.new(Dir.new(@data_dir))
   end
 
   def teardown
@@ -17,8 +17,13 @@ class TestTaskRepository < MiniTest::Unit::TestCase
     assert_equal(0, @repo.all.size)
   end
 
-  def test_save_task
-    @repo.save(Task.new('Read DDD book'))
-    assert_equal(1, @repo.all.size)
+  def test_save_and_read_task
+    read_ddd = Task.new('Read DDD book')
+    @repo.save(read_ddd)
+    assert_equal(1, @repo.count)
+
+    read_back = @repo.first
+    assert_equal(read_ddd, read_back)
+    assert(read_ddd.eql?(read_back))
   end
 end

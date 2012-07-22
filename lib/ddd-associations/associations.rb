@@ -33,6 +33,28 @@ module DDD
       end
 
       #
+      # Regular attribute definition:
+      #
+      #   has_one :title
+      #
+      # is almost equivalent to
+      #
+      #   attr_accessor
+      #
+      # In addition, it registers the attribute(s) to they can be enumerated in the repository etc.
+      #
+      def has_one(*attr)
+        if attr.nil? or attr.empty?
+          @attributes
+        else
+          @attributes = attr
+          @attributes.each{|attr| self.send('attr_accessor', attr)}
+        end
+      end
+
+      attr_reader :attributes
+
+      #
       # Many tasks belong to many tags and vice versa
       #
       def has_and_belongs_to_many(others)

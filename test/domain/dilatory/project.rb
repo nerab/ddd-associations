@@ -1,11 +1,12 @@
 module Dilatory
-  class Project
+  class Project < Entity
     include DDD::Associations
 
-    attr_accessor :title, :goal
+    has_one :title, :goal
     has_many :tasks
 
     def initialize(title, goal = nil)
+      super()
       @title, @goal = title, goal
     end
   end
