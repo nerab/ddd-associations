@@ -2,7 +2,7 @@
 
 A metaprogramming exercise that implements associations in pure Ruby, inspired by domain-driven design.
 
-Please see the [examples](/nerab/ddd-associations/tree/master/test/domain) for an example.
+Please see the [dilatory](/nerab/ddd-associations/tree/master/test/domain) sample application for sample usage.
 
 [![Build Status](https://secure.travis-ci.org/nerab/ddd-associations.png?branch=master)](http://travis-ci.org/nerab/ddd-associations)
 
