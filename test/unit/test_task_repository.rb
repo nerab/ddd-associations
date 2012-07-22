@@ -16,4 +16,9 @@ class TestTaskRepository < MiniTest::Unit::TestCase
   def test_all_empty
     assert_equal(0, @repo.all.size)
   end
+
+  def test_save_task
+    @repo.save(Task.new('Read DDD book'))
+    assert_equal(1, @repo.all.size)
+  end
 end
