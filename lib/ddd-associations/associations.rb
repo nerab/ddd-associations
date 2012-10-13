@@ -65,7 +65,7 @@ module DDD
 
       def new(*args)
         super(*args).tap do |instance|
-          instance.instance_variable_set("@#{@others}", @collection.new(instance))
+          instance.instance_variable_set("@#{@others}", @collection.new(instance)) if @collection
         end
       end
     end
